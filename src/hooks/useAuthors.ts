@@ -1,6 +1,6 @@
 import { useAuthorStore } from "@/store/authorsStore";
 import axios from "axios";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 export const useAuthors = () => {
     const [loading, setLoading] = useState(false);
@@ -9,11 +9,10 @@ export const useAuthors = () => {
 
     const API_URL = 'http://127.0.0.1:8080/api/authors';
 
-    const fetchAuthors = async () => {
+    const fetchAuthors = useCallback(async () => {
         try {
-            setLoading(true);
             setError(null);
-
+            setLoading(true)
             const apiResponse = await axios.get(API_URL);
             setAuthors(apiResponse.data);
         } catch (err) {
@@ -22,7 +21,7 @@ export const useAuthors = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [setAuthors]);
 
     return {
         authors,
