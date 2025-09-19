@@ -1,7 +1,7 @@
 "use client";
 
+import AuthorCard from "@/components/AuthorCard";
 import { useAuthors } from "@/hooks/useAuthors";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 
@@ -39,20 +39,9 @@ export default function Authors() {
             {authors.length === 0 ? (
             <p>There are no authors.</p>
             ) : (
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {authors.map((author) => (
-                <div key={author.id} className="border rounded-lg p-4">
-                    <Image
-                    width={500}
-                    height={500}
-                    src={author.image}
-                    alt={author.name}
-                    className="w-full h-100 object-cover rounded mb-4"
-                    />
-                    <h2 className="text-xl font-bold">{author.name}</h2>
-                    <p className="text font-bold">Born: {author.birthDate}</p>
-                    <p className="text font-bold">{author.description}</p>
-                </div>
+                <AuthorCard key={author.id} author={author}/>
                 ))}
             </div>
             )}
