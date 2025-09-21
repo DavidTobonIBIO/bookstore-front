@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Author } from '@/types/author';
+import { Author } from '@/modules/authors/types/author';
 
 type AuthorCardProps = {
   author: Author;

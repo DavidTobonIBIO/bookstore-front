@@ -1,11 +1,11 @@
 "use client";
 
-import AuthorCard from "@/components/AuthorCard";
-import { useAuthors } from "@/hooks/useAuthors";
+import AuthorCard from "@/modules/authors/ui/AuthorCard";
+import { useAuthors } from "@/modules/authors/hooks/useAuthors";
 import Link from "next/link";
 import { useEffect } from "react";
 
-export default function Authors() {
+export default function AuthorsListPage() {
   const { authors, loading, error, fetchAuthors } = useAuthors();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function Authors() {
             <h1 className="text-4xl font-bold">Authors List</h1>
             <Link
                 className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-200"
-                href="/authors/create"
+                href="/authors/new"
             >
                 Add Author
             </Link>

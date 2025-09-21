@@ -1,4 +1,4 @@
-import { Author } from "@/types/author";
+import { Author } from "@/modules/authors/types/author";
 import { create } from "zustand";
 
 interface AuthorsState {

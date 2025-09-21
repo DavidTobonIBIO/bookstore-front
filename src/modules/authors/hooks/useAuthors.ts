@@ -1,4 +1,4 @@
-import { useAuthorStore } from "@/store/authorsStore";
+import { useAuthorStore } from "@/modules/authors/store/authorsStore";
 import axios from "axios";
 import { useCallback, useState } from "react";
 
