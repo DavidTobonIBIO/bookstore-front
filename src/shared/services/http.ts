@@ -34,6 +34,23 @@ export async function fetcher<T>(
     );
   }
 
-  // If the response is successful, we parse it as JSON.
-  return response.json() as Promise<T>;
+  // Revisar si la respuesta tiene contenido JSON (en casos de DELETE, no tiene)
+  const contentLength = response.headers.get('content-length');
+  const contentType = response.headers.get('content-type');
+  
+  if (contentLength === '0' || !contentType?.includes('application/json')) {
+    return undefined as T;
+  }
+
+  const text = await response.text();
+  if (!text || text.trim() === '') {
+    return undefined as T;
+  }
+
+  // If we have content, parse it as JSON
+  try {
+    return JSON.parse(text) as T;
+  } catch (error) {
+    return text as T;
+  }
 }
