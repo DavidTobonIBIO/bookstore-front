@@ -3,6 +3,8 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AuthorFormData, authorSchema } from "../validation/authorSchema";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface AuthorFormProps {
     onSubmit: SubmitHandler<AuthorFormData>;
@@ -15,6 +17,12 @@ export default function AuthorForm({
     defaultValues,
     isSubmitting,
 }: AuthorFormProps) {
+    const router = useRouter();
+    
+    const handleCancel = () => {
+        router.back();
+    };
+    
     const {
         register,
         handleSubmit,
@@ -92,13 +100,21 @@ export default function AuthorForm({
                 )}
             </div>
 
-            <button
-                type="submit"
-                disabled={isSubmitting}
-                className="bg-green-400 text-white font-bold py-2 px-6 rounded hover:bg-green-500 disabled:bg-gray-300"
-            >
-                {isSubmitting ? "Saving..." : "Save Author"}
-            </button>
+            <div className="flex gap-4">
+                <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="bg-green-400 text-white font-bold py-2 px-6 rounded hover:bg-green-500 disabled:bg-gray-300"
+                >
+                    {isSubmitting ? "Saving..." : "Save Author"}
+                </button>
+                <Link
+                    className="bg-gray-500 text-white font-bold py-2 px-6 rounded hover:bg-gray-600 disabled:bg-gray-300 inline-block text-center"
+                    href="/authors"
+                >
+                    Cancel
+                </Link>
+            </div>
         </form>
     );
 }

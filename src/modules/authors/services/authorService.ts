@@ -19,3 +19,36 @@ export const createAuthor = (data: AuthorFormData): Promise<Author> => {
     body: JSON.stringify(data), // We send the data as a JSON string
   });
 };
+
+/**
+ * Update an existing author by sending the form data to the API.
+ * @param id - The ID of the author to update.
+ * @param data - The form data to update the author validated by Zod.
+ * @returns A promise that resolves with the updated author from the backend.
+ */
+export const updateAuthor = (id: string, data: AuthorFormData): Promise<Author> => {
+  return fetcher<Author>(`/authors/${id}`, {
+    method: "PUT",
+    body: JSON.stringify(data),
+  });
+};
+
+/**
+ * Delete an author by ID.
+ * @param id - The ID of the author to delete.
+ * @returns A promise that resolves when the author is successfully deleted.
+ */
+export const deleteAuthor = (id: string): Promise<void> => {
+  return fetcher<void>(`/authors/${id}`, {
+    method: "DELETE",
+  });
+};
+
+/**
+ * Fetch a single author by ID.
+ * @param id - The ID of the author to fetch.
+ * @returns A promise that resolves with the author data.
+ */
+export const fetchAuthorById = (id: string): Promise<Author> => {
+  return fetcher<Author>(`/authors/${id}`);
+};

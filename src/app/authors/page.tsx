@@ -30,7 +30,7 @@ export default function AuthorsListPage() {
             <h1 className="text-4xl font-bold">Authors List</h1>
             <Link
                 className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-200"
-                href="/authors/new"
+                href="/authors/create"
             >
                 Add Author
             </Link>
