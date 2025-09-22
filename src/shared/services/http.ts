@@ -4,7 +4,7 @@ const API_BASE_URL = "http://127.0.0.1:8000/api";
  * A generic and reusable function to make fetch requests to our API.
  * Encapsulates the base URL logic, HTTP error handling and JSON parsing.
  *
- * @param endpoint - The endpoint route to call (e.g: '/services').
+ * @param endpoint - The endpoint route to call (e.g: '/authors').
  * @param options - Configuration options for fetch (method, body, headers, etc.).
  * @returns A promise that resolves with the response data in JSON format.
  * @throws Throws an error if the network response is not 'ok' (e.g: status 404 or 500).

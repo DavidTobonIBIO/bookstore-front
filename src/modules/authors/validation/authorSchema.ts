@@ -6,7 +6,7 @@ export const authorSchema = z.object({
 
     description: z.string().max(200, "Description must be less than 200 characters"),
 
-    birthDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Birth date must be in YYYY-MM-DD format").refine((dateStr) => {
+    birthDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Please enter a valid date").refine((dateStr) => {
       const date = new Date(dateStr);
       // getTime() retorna NaN for invalid dates
       return !isNaN(date.getTime()) && date.toISOString().slice(0, 10) === dateStr;
