@@ -65,8 +65,8 @@ export const useAuthors = () => {
         try {
             setError(null);
             setLoading(true);
-            await deleteAuthorService(id);
             deleteAuthorFromStore(id);
+            await deleteAuthorService(id);
         } catch (err) {
             const errorMessage = err instanceof Error ? err.message : 'Error deleting author';
             setError(errorMessage);
