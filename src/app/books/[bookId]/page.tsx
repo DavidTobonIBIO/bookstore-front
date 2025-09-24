@@ -4,11 +4,12 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Book } from '@/modules/books/types/book';
+import { useBooks } from '@/modules/books/hooks/useBooks';
 
 export default function BookDetails() {
 
-
-   const bookDetails: Book = getBookById()
+    const { getBookById } = useBooks();
+   const bookDetails: Book = getBookById(bookId)
 
   return (
         <div className="border rounded-lg shadow-lg overflow-hidden max-w-sm">
