@@ -19,10 +19,6 @@ export default function AuthorForm({
 }: AuthorFormProps) {
     const router = useRouter();
     
-    const handleCancel = () => {
-        router.back();
-    };
-    
     const {
         register,
         handleSubmit,

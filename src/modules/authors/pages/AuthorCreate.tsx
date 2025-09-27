@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { createAuthor } from "../services/authorService";
 import { useNotificationStore } from "@/shared/store/useNotificationStore";
 
-export default function AuthorCreatePage() {
+export default function AuthorCreate() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter(); // Get the router to redirect

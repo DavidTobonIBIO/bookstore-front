@@ -1,3 +1,3 @@
-import AuthorCreatePage from "@/modules/authors/pages/AuthorCreatePage";
+import AuthorCreate from "@/modules/authors/pages/AuthorCreate";
 
-export default AuthorCreatePage;
+export default AuthorCreate;

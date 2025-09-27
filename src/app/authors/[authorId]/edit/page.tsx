@@ -1,4 +1,4 @@
-import AuthorEditPage from "@/modules/authors/pages/AuthorEditPage";
+import AuthorEdit from "@/modules/authors/pages/AuthorEdit";
 
 export default async function EditAuthorPage({
   params,
@@ -7,5 +7,5 @@ export default async function EditAuthorPage({
 }) {
   const { authorId } = await params;
 
-  return <AuthorEditPage authorId={authorId} />;
+  return <AuthorEdit authorId={authorId} />;
 }

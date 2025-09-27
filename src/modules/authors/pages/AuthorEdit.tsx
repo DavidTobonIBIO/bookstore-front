@@ -7,11 +7,11 @@ import AuthorForm from "../ui/AuthorForm";
 import { useAuthors } from "../hooks/useAuthors";
 import { useNotificationStore } from "@/shared/store/useNotificationStore";
 
-interface AuthorEditPageProps {
+interface AuthorEditProps {
   authorId: string;
 }
 
-export default function AuthorEditPage({ authorId }: AuthorEditPageProps) {
+export default function AuthorEdit({ authorId }: AuthorEditProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [initialData, setInitialData] = useState<AuthorFormData | null>(null);

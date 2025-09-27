@@ -26,7 +26,7 @@ export default function BookCard ({ book }: BookCardProps) {
         
         <div className="flex gap-2 mt-4">
           <Link
-            href={`/books/${book.id}`}
+            href={`/books/${book.id}/details`}
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-200 flex-1 text-center"
           >
             Details
