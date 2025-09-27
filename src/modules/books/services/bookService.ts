@@ -24,11 +24,12 @@ export const createBook = (data: BookFormData): Promise<Book> => {
 
 /**
  * Add a book review.
+ * @param bookId - The ID of the reviewed book
  * @param data - The review data.
  * @returns A promise that resolves when the review is successfully created.
  */
-export const addReview = (data: ReviewFormData): Promise<Review> => {
-  return fetcher<Review>("/books", {
+export const addReview = (bookId: string, data: ReviewFormData): Promise<Review> => {
+  return fetcher<Review>(`/books/${bookId}/reviews`, {
     method: "POST",
     body: JSON.stringify(data), // We send the data as a JSON string
   });

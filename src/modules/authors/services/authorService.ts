@@ -1,6 +1,7 @@
 import { fetcher } from "@/shared/services/http";
 import { Author } from "../types/author";
 import { AuthorFormData } from "../validation/authorSchema";
+import { Book } from "@/modules/books/types/book";
 
 export const fetchAuthorsService = (): Promise<Author[]> => {
   // We call the GET /authors endpoint.
@@ -52,3 +53,15 @@ export const deleteAuthor = (id: string): Promise<void> => {
 export const fetchAuthorById = (id: string): Promise<Author> => {
   return fetcher<Author>(`/authors/${id}`);
 };
+
+/**
+ * Associate a book to and author by ID.
+ * @param authorId - The ID of the author of the book.
+ * @param bookId - The ID of the book written by the author.
+ * @returns A promise that resolves with the book data.
+ */
+export const addBookToAuthor = (authorId: string, bookId: string): Promise<Book> => {
+  return fetcher<Book>(`/authors/${authorId}/books/${bookId}`, {
+    method: "POST",
+  });
+}

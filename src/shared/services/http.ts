@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://127.0.0.1:8080/api";
+import { API_BASE_URL } from "../constants";
 
 /**
  * A generic and reusable function to make fetch requests to our API.
